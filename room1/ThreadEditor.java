@@ -39,7 +39,6 @@ public class ThreadEditor implements Runnable {
             }
         }
         str.data = res;
-//        return res;
     }
 
 

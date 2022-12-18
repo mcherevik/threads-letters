@@ -32,7 +32,7 @@ public class ThreadWatcher implements Runnable {
             threadPrint(res.counter);
             if (res.counter >= 10) {
                 toFile();
-                res.counter -=10;
+                res.counter -= 10;
             }
         }
     }
@@ -47,7 +47,7 @@ public class ThreadWatcher implements Runnable {
 
     void toFile() {
 //        try(FileOutputStream fos = new FileOutputStream("C:\\Users\\1288947\\IdeaProjects\\tasks\\src\\main\\java\\threads1712\\res.txt")) {
-        try(FileOutputStream fos = new FileOutputStream(outputFilepath)) {
+        try (FileOutputStream fos = new FileOutputStream(outputFilepath, true)) {
 //            byte[] buffer = writeChanges(res.getLetters()).getBytes();
             String toWrite = writeChanges(res.getLetters());
             threadPrint("string to write to file: " + toWrite);
