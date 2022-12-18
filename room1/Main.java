@@ -1,4 +1,4 @@
-package threads1712;
+package threads1712.room1;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,13 @@ public class Main {
         for (Thread t : editors) {
             t.start();
         }
+//        for (Thread t : editors) {
+//            try {
+//                t.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
 //        try {
 //            watcher.join();
 //        } catch (InterruptedException e) {
