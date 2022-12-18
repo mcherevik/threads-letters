@@ -14,8 +14,26 @@ public class Main {
             editors.add(new Thread(new ThreadEditor(res)));
         }
 
+        Thread watcher = new Thread(new ThreadWatcher(res));
+        watcher.start();
+        try {
+            watcher.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         for (Thread t : editors) {
             t.start();
         }
+
+        for (Thread t : editors) {
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
     }
 }

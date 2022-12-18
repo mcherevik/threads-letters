@@ -8,6 +8,7 @@ public class CommonResource {
     private String[] letters = new String[size];
     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     Random random = new Random();
+    int counter = 0;
 
     void generateArray() {
         for (int i = 0; i < size; i++) {
@@ -26,9 +27,5 @@ public class CommonResource {
 
     public String[] getLetters() {
         return letters;
-    }
-
-    public void setLetters(String[] letters) {
-        this.letters = letters;
     }
 }
