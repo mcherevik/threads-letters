@@ -14,7 +14,7 @@ public class ThreadWatcher implements Runnable {
 
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             if (res.counter == 10) {
                 toFile();
                 res.counter = 0;
@@ -42,4 +42,5 @@ public class ThreadWatcher implements Runnable {
         }
         System.out.println("The file has been written");
     }
+
 }
