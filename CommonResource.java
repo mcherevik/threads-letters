@@ -1,15 +1,19 @@
 package threads1712;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Random;
 
 public class CommonResource {
     private int size;
     private int stringLength;
     private Element[] stringsArray;
+    private String initialFile = "C:\\Users\\1288947\\IdeaProjects\\tasks\\src\\main\\java\\threads1712\\initial.txt";
     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     Random random;
     int counter = 0;
     int currentElement = 0;
+    String readData = "";
 
     public CommonResource() {
         this.size = 10;
@@ -37,6 +41,21 @@ public class CommonResource {
 
     public synchronized void increaseCounter() {
         this.counter++;
+    }
+
+    Element[] readFromFile() {
+        try (FileInputStream fin = new FileInputStream(initialFile)) {
+            byte[] bytedata;
+            bytedata = fin.readAllBytes();
+            readData = new String(bytedata);
+            String[] initialWords = readData.split(" ");
+            for (int i = 0; i < stringsArray.length; i++) {
+                stringsArray[i].data = initialWords[i];
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return stringsArray;
     }
 
     void generateArray() {

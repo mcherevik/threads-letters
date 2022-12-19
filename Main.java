@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         CommonResource res = new CommonResource();
-        res.generateArray();
+        //res.generateArray();
+        res.readFromFile();
         System.out.println("Initial array");
         res.printArray();
         System.out.println();
